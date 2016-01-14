@@ -15,7 +15,10 @@ var Queue = function(){
 
 var queueMethods = {};
 
-queueMethods.enqueue = function() {};
+queueMethods.enqueue = function(value) {
+  this.storage[this.count] = value;
+  this.count++;
+};
 queueMethods.dequeue = function() {};
 queueMethods.size = function() {
   return this.count;
