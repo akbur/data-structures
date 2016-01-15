@@ -9,7 +9,7 @@ var Graph = function(){
 // ------------------------
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node){
-  this[node] = {};
+  this[node] = [];
   console.dir(this)
   
 };
@@ -29,11 +29,14 @@ Graph.prototype.removeNode = function(node){
 // ------------------------
 // Returns a boolean indicating whether two specified nodes are connected.  Pass in the values contained in each of the two nodes.
 Graph.prototype.hasEdge = function(fromNode, toNode){
+  return _.contains(this[fromNode], toNode);
 };
 
 // ------------------------
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode){
+  this[fromNode].push(toNode);
+  this[toNode].push(fromNode);
 };
 
 // ------------------------
