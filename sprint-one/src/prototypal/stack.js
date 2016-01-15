@@ -12,7 +12,10 @@ var Stack = function() {
 
 var stackMethods = {};
 
-stackMethods.push = function(value) {};
+stackMethods.push = function(value) {
+  this.storage[this.count] = value;
+  this.count++;
+};
 stackMethods.pop = function() {};
 stackMethods.size = function() {
   return this.count;
