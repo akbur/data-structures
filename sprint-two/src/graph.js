@@ -55,6 +55,11 @@ Graph.prototype.removeEdge = function(fromNode, toNode){
 // ------------------------
 // Pass in a callback which will be executed on each node of the graph.
 Graph.prototype.forEachNode = function(cb){
+  for (var key in this) {
+    if(this.hasOwnProperty(key)) { 
+      cb(key);
+    }
+  }
 };
 
 /*
