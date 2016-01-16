@@ -9,9 +9,7 @@ var Graph = function(){
 // ------------------------
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node){
-  this[node] = [];
-  console.dir(this)
-  
+  this[node] = [];  
 };
 
 // ------------------------
@@ -42,6 +40,14 @@ Graph.prototype.addEdge = function(fromNode, toNode){
 // ------------------------
 // Remove an edge between any two specified (by value) nodes.
 Graph.prototype.removeEdge = function(fromNode, toNode){
+  var i = _.indexOf(this[fromNode], toNode);
+  if(i !== -1) {
+    this[fromNode].splice(i, 1);
+  }
+  var j = _.indexOf(this[toNode], fromNode);
+  if(j !== -1) {
+    this[toNode].splice(j, 1);
+  }
 };
 
 // ------------------------
