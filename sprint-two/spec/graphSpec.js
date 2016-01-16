@@ -41,9 +41,7 @@ describe('graph', function() {
     graph.addNode('satsumas');
     graph.addEdge('satsumas', 'apples');
     expect(graph.hasEdge('apples', 'satsumas')).to.equal(true);
-    console.dir(graph);
     graph.removeEdge('satsumas', 'apples');
-    console.dir(graph);
     expect(graph.hasEdge('apples', 'satsumas')).to.equal(false);
   });
 
