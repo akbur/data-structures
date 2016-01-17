@@ -25,7 +25,22 @@ BinarySearchTree.prototype.insert = function(value) {
 };
 
 BinarySearchTree.prototype.contains = function(value) {
-
+  var result = false;
+  var searchNodes = function(root) {
+    if(root.value === value) {
+      result = true;
+      return;
+    } 
+    if(root.value > value && root.left !== null) {
+      searchNodes(root.left);
+    } else if(root.value < value && root.right !== null) {
+      searchNodes(root.right);
+    } else {
+      return;
+    }
+  };
+  searchNodes(this);
+  return result;
 };
 
 BinarySearchTree.prototype.depthFirstLog = function(callback) {
