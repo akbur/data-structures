@@ -6,18 +6,18 @@ var HashTable = function(){
 HashTable.prototype.insert = function(k, v){
   var i = getIndexBelowMaxForKey(k, this._limit);
 
-
   var result = this._storage.get(i);
 
   if (result === undefined || result === null) {
     this._storage.set(i, {});
   }
+
   this._storage.each(function(obj, index, storage){
     if (index === i) {
       obj[k] = v;
-      console.dir(obj);
     }
   });
+
 };
 
 HashTable.prototype.retrieve = function(k){
@@ -39,4 +39,7 @@ HashTable.prototype.remove = function(k){
 
 /*
  * Complexity: What is the time complexity of the above functions?
+   insert: O(n)
+   retrieve: O(1)
+   remove: O(1)
  */
