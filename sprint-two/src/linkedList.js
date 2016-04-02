@@ -1,12 +1,12 @@
-var LinkedList = function(){
+var LinkedList = function () {
   var list = {};
   list.head = null;
   list.tail = null;
 
-  list.addToTail = function(value){
+  list.addToTail = function (value) {
     var node = Node(value);
     
-    if(!this.head) {
+    if (!this.head) {
       this.head = node;
       this.tail = node;
     } else {
@@ -15,16 +15,15 @@ var LinkedList = function(){
     }
   };
 
-  list.removeHead = function(){
+  list.removeHead = function () {
     var temp = this.head;
     this.head = this.head.next;
     return temp.value;
   };
 
-  list.contains = function(target){
+  list.contains = function (target) {
     var test = false;
-
-    var testNode = function(currentNode) {
+    var testNode = function (currentNode) {
       if (currentNode.value === target) {
         test = true;
         return;
@@ -37,16 +36,13 @@ var LinkedList = function(){
     testNode(this.head);
     return test;
   };
-
   return list;
 };
 
 var Node = function(value){
   var node = {};
-
   node.value = value;
   node.next = null;
-
   return node;
 };
 

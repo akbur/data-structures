@@ -1,4 +1,4 @@
-var Set = function(){
+var Set = function () {
   var set = Object.create(setPrototype);
   set._storage = [];
   return set;
@@ -6,13 +6,13 @@ var Set = function(){
 
 var setPrototype = {};
 
-setPrototype.add = function(item){
+setPrototype.add = function (item) {
   this._storage[this._storage.length] = item;
 };
 
-setPrototype.contains = function(item){
+setPrototype.contains = function (item) {
   var result = false;
-  _.each(this._storage, function(value) {
+  _.each(this._storage, function (value) {
     if (value === item) {
       result = true;
     }
@@ -20,7 +20,7 @@ setPrototype.contains = function(item){
   return result;
 };
 
-setPrototype.remove = function(item){
+setPrototype.remove = function (item) {
   var index = _.indexOf(this._storage, item);
   if (index !== -1) {
     this._storage.splice(index, 1);

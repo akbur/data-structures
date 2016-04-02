@@ -1,22 +1,20 @@
-var BinarySearchTree = function(value){
+var BinarySearchTree = function (value) {
   var newTree = Object.create(BinarySearchTree.prototype);
-
   newTree.value = value;
   newTree.left = null;
   newTree.right = null;
-
   return newTree;
 };
 
-BinarySearchTree.prototype.insert = function(value) {
-  if(value > this.value) {
-    if(this.right === null) {
+BinarySearchTree.prototype.insert = function (value) {
+  if (value > this.value) {
+    if (this.right === null) {
       this.right = BinarySearchTree(value);
     } else {
       this.insert.call(this.right, arguments[0]);
     }
   } else {
-    if(this.left === null) {
+    if (this.left === null) {
       this.left = BinarySearchTree(value);
     } else {
       this.insert.call(this.left, arguments[0]);
@@ -24,16 +22,16 @@ BinarySearchTree.prototype.insert = function(value) {
   }
 };
 
-BinarySearchTree.prototype.contains = function(value) {
+BinarySearchTree.prototype.contains = function (value) {
   var result = false;
-  var searchNodes = function(root) {
-    if(root.value === value) {
+  var searchNodes = function (root) {
+    if (root.value === value) {
       result = true;
       return;
-    } 
-    if(root.value > value && root.left !== null) {
+    }
+    if (root.value > value && root.left !== null) {
       searchNodes(root.left);
-    } else if(root.value < value && root.right !== null) {
+    } else if (root.value < value && root.right !== null) {
       searchNodes(root.right);
     } else {
       return;
@@ -43,7 +41,7 @@ BinarySearchTree.prototype.contains = function(value) {
   return result;
 };
 
-BinarySearchTree.prototype.depthFirstLog = function(callback) {
+BinarySearchTree.prototype.depthFirstLog = function (callback) {
   var self = this;
   callback(self.value);
   if (self.left !== null) {
